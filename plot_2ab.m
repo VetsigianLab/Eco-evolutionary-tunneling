@@ -10,7 +10,7 @@ A={A.name};
 N_sim = length(A);
 
 
-clear simulation
+
 
 
 
@@ -30,7 +30,7 @@ for i = 1:N_sim  %i=scan_around_QSoutput/415 Error using matlab.graphics.axis.Ax
     
 
     
-    load(A{i})
+   
     
     
     TTT = simulation.T;
@@ -121,6 +121,11 @@ scatter3(P_(1,:), P_(2,:), TR(3,tmp), round(20 + 6*log10(XX1)), Col, 'filled'); 
 % set(gca, 'ylim', [min([0 1.1*min(TR(2,tmp))]) max([0 1.1*max(TR(2,tmp))])]);
 % end
 view(60,0)
+
+xlabel('Phenotypes')
+zlabel('time')
+
+
 title(params)    
 zlim([0 T_(end)]);
 subplot(3,3,[3 6]);
@@ -135,6 +140,10 @@ try
     set(gca, 'xlim', 1.05*[min(P_(:)) max(P_(:))]);
     set(gca, 'ylim', 1.05*[min(P_(:)) max(P_(:))]);
 end
+
+xlabel('Phenotypes')
+ylabel('Phenotypes')
+
 q2=(1+log10(1+simulation.maxP));
 q1 = -(1+log10(1+simulation.maxA/4));
 rectangle('Position', [q1 q1 q2-q1 q2-q1]);
@@ -187,7 +196,9 @@ for i0 = 1 : size(uPh,2);
    hold on;
 end
 
-    
+
+xlabel('time')
+ylabel('abundances')
 
 
 

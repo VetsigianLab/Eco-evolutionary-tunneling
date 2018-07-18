@@ -86,6 +86,8 @@ Col = col16(Col_ind,:);
 
 subplot(3,3,[1 2 4 5]);
 scatter(P_(1,:), TR(2,tmp), round(20 + 6*log10(XX1)), Col, 'filled'); grid on;
+xlabel('Phenotypes')
+zlabel('time')
 
 subplot(3,3,[7 8 9]);
 
@@ -130,3 +132,6 @@ end
 
 ylim([1e-5 1]); xlim([0 T_(end)]);
     set(gcf, 'PaperOrientation', 'landscape')
+
+xlabel('time')
+ylabel('abundances')
