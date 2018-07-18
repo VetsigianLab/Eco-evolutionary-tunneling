@@ -1,10 +1,8 @@
-# Emergence-of-evolutionary-stable-communities-through-eco-evolutionary-tunneling
-codes for "Emergence of evolutionary stable communities through eco-evolutionary tunneling"
+
 
 PLEASE RUN THE MAIN.M FILE TO EXECUTE A SIMULATION
+------------------------------------------------------------------
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [sim]=generateInput.m
 
 This file asks the user to key in the various variables to generate the Input file and variable 'sim'. Some of the paramters are 
@@ -24,7 +22,8 @@ that is resistant to first antibiotic and degrader of the second antibiotic).
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 [simulation]=evolution.m(FileOutputName,sim) 
 The input file:
 The input file is a sim.mat file, in this file all the necessary information on starting a simulation should be included. 
@@ -47,7 +46,8 @@ the use:
 simulation.Phenotypes and simulation.X are 'cell' variable. The time variable associated with the corresponding simulation.Phenotypes
  or .X variable are in simulation.t.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 [R_,simulation.XX] = precalc(simulation, PROD_Gaussian);
 This m file is called from evolve.m to compute the feast part of the ecological cycle (growth and spread of the mycellium). It 
 computes the colony boundaries of the grown spores. The micellium spread rate for each phenotype is assumed to be the same.
@@ -65,7 +65,8 @@ R_= is the collection of grown patches. (spaces to simulated with antibiotic pro
 simulation.XX= The coordinates of landed spores.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 f = getFitness(X, g, b', a', simulation.alpha, simulation.Eff_op, simulation.Deg_op, simulation.Gamma, simulation.L.^2, simulation.Nz, ...
             simulation.dose_response_factor, simulation.Tp, simulation.Tr, simulation.Num_perm);
 
@@ -85,7 +86,8 @@ a producers
 Output
 f spore yield for each species.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 time=FindStableCommunity(simulation) (only works for one and two antibiotics)
 
 
@@ -97,17 +99,19 @@ Asks the user for if the trajectory is generated with single antibiotic universe
 output
 Time of the community formation
 and plot of that trajectory. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 identification_one
 
 identifies the start of ESC for one antibiotic
+------------------------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 identification_two
 
 identifies the start of ESC for two antibiotic
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+------------------------------------------------------------------
+
 plot_2ab and plot_1ab
 
 plots the trajectories.
@@ -115,3 +119,25 @@ plots the trajectories.
 upper left phenotype space through time (increasing vertically)
 upper right presence of phenotypes
 bottom abundances of species.
+ 
+
+
+------------------------------------------------------------------
+
+
+
+evolve_spatial.m
+
+This m file is a modified version of the evolution.m file made to simulate spatially structured meta-communities.
+
+
+
+
+
+
+
+
+
+
+
+
